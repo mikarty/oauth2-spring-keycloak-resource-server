@@ -1,0 +1,22 @@
+server:
+  port: 7777
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8888/auth/realms/carboss
+          jwk-set-uri: http://localhost:8888/auth/realms/carboss/protocol/openid-connect/certs
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+    disable-swagger-default-url: true
+    oauth:
+      clientId: carboss-client
+      clientSecret: d52HHXaX7ixuLmdIiBjQHVSTj6Q2KJZI
+  OAuthFlow:
+    authorizationUrl: http://localhost:8888/auth/realms/carboss/protocol/openid-connect/auth
+    tokenUrl: http://localhost:8888/auth/realms/carboss/protocol/openid-connect/token
+    use-pkce-with-authorization-code-grant: true
