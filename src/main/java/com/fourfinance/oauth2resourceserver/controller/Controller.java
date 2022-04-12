@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fourfinance.oauth2resourceserver.controller.dto.Car;
-import com.fourfinance.oauth2resourceserver.controller.dto.Customers;
+import com.fourfinance.oauth2resourceserver.controller.dto.Customer;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
@@ -39,13 +39,13 @@ public class Controller {
     @PreAuthorize("hasRole('customers:read')")
     @SecurityRequirement(name = BEARER_KEY)
     @GetMapping(value = "/api/customers", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Customers> personalContacts() {
+    public List<Customer> personalContacts() {
         return List.of(
-            Customers.builder()
+            Customer.builder()
                 .name("Mister Smith")
                 .phoneNumber("227064564")
                 .build(),
-            Customers.builder()
+            Customer.builder()
                 .name("John Doe")
                 .phoneNumber("436545756")
                 .build()
